@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(fileUpload());
 
-mongoose.connect('mongodb://localhost:27017/saveFiles', { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb+srv://anjali:123@cluster0.rv6v1.mongodb.net/ImagesApp?retryWrites=true&w=majority'||'mongodb://localhost:27017/saveFiles', { useNewUrlParser: true, useUnifiedTopology: true})
 .then((res)=>{
    console.log("successfully connected to database u can work now");
 })
@@ -40,6 +40,6 @@ app.post('/upload', function(req, res) {
 });
 
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT||3000,()=>{
   console.log('App is running on 3000...');
 });
