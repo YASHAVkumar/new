@@ -1,0 +1,27 @@
+
+<html>
+  <body style="background-color:black;color:white">
+  <fieldset style="text-align:center;margin-top:1rem;">
+    <legend>Image Upload Form</legend>
+   <form ref='uploadForm'
+      id='uploadForm'
+      action='/upload'
+      method='POST'
+      encType="multipart/form-data">
+        <input type="file" name="sampleFile" accept=".jpg, .png"/>
+        <input type="date" name="td">
+        <input type='submit' value='Upload!' />
+    </form>
+   </fieldset>
+    <div style="display:flex;justify-content:space-around;flex-wrap:wrap;margin-top:5rem;">
+
+       <%for(var img of obj){ %>
+          <div style="border:2px solid yellow;margin-top:10px;width:200px;padding:4px;">
+              <img src="<%=img.file%>" width="200px" height="300px">
+              <h4><%= img.tdate%></h4>
+             <h4><%= img._id%></h4>
+          </div>
+       <%}%>
+    </div>
+  </body>
+</html>
